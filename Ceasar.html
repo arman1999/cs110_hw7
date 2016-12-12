@@ -1,0 +1,18 @@
+<script>
+const Caesar = function (text,offset){
+    const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    var lowText = text.toLowerCase();
+    var encryption = '';
+    for(var i = 0; i < lowText.length; i++) {
+            var temp = alphabet.findIndex(function (item) {
+                return lowText[i] === item;
+            });
+            encryption += (((temp !== -1)) ?
+                ((alphabet[temp+offset] !== undefined) ? alphabet[temp + offset] :
+                    alphabet[temp + offset -alphabet.length]) : lowText[i]);
+        }
+
+    return encryption;
+};
+console.log(Caesar('Armenia is the best country in the world.', 7));
+</script>
